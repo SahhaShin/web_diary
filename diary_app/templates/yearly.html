@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yearly Plan</title>
+    <link href="/static/css/yearly.css" rel="stylesheet" />
+
+    <!-- 부트스트랩 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+</head>
+
+<body>
+    <!-- 부트스트랩 -->
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    
+    
+    <!-- navbar 시작 -->
+
+    
+    <nav>
+        <div style="margin-top:5%">
+            <a href="{% url 'index' %}">
+
+                <img id="top" style="width: 5%;" src="/static/lavender1.png">
+            </a>
+
+        </div>
+
+
+        <div>
+            <div class="menu">
+                <a href="{% url 'yearly' %}" class="on">
+                    <span style="font-size: 20px;">Yearly Plan</span>
+
+
+                </a>
+                <a href="{% url 'monthly' %}"><span style="font-size: 20px;">Monthly Plan</span></a>
+                <a href="#"><span style="font-size: 20px;">Write a diary</span></a>
+
+                <!-- 밑에 선을 위해 필요함 span -->
+                <span></span>
+            </div>
+        </div>
+
+    </nav>
+
+
+
+    <script type="text/javascript" src="/static/js/yearly.js"></script>
+    <!-- navbar 끝 -->
+
+
+    <!-- 년도 바꾸기 -->
+    <div class="dropdown">
+        <button class="dropbtn">Year</button>
+        <div class="dropdown-content">
+          <a href="#">2021</a>
+          <a href="#">2022</a>
+          <a href="#">2023</a>
+          <a href="#">2024</a>
+          <a href="#">2025</a>
+        </div>
+    </div>
+    <!--달력 상단 -->
+
+
+    <div class="cal">
+        <div>
+            <a href="#"><img src="/static/prev.png" class="img_size"></a>
+
+
+            <wh style="color: white; font-size:30px; margin-left: 2%; margin-right: 2%;">2021</wh>
+
+
+            <a href="#"><img src="/static/next.png" class="img_size"></a>
+        </div>
+        
+
+    </div>
+
+    <!-- 달력 -->
+    <div class="entry">
+        <!-- 1~4월 -->
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        <h5 style="font-size:30px; margin-left: 5%;"><img src="/static/star.png" style="width: 2%;">달성률 <wr style="color: red;">50%</wr> </h5>
+  
+        
+       
+        
+
+        <h5 style="margin-left:8%; top:10%">
+            <wr>january
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 10%;">february    
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left: 14%;">march
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 12%;">april  
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+        </h5>
+
+
+        <!-- 5~8월 -->
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        <h5 style="font-size:25px;">&nbsp;</h5>
+
+        <h5 style="margin-left:10%; top:10%">
+            <wr>may
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 14%;">jun    
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left: 16%;">july
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 11%;">august  
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+        </h5>
+
+
+        <!-- 9~12월 -->
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        <h5 style="font-size:25px;">&nbsp;</h5>
+
+        <h5 style="margin-left:7%; top:10%">
+            <wr>september
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 11%;">october  
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left: 13%;">november
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 9%;">december
+                <a href="#"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+        </h5>
+      
+    </div>
+
+
+
+
+  
+
+
+
+</body>
+
+</html>
