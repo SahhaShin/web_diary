@@ -22,4 +22,11 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('yearly/', views.yearly, name='yearly'),
     path('monthly/', views.monthly, name='monthly'),
+    path('write/', views.write, name='write'),
+    path('list/', views.list, name='list'),
+
+    path('storage/', views.storage, name='storage'),
+
+    path('<int:id>/',views.read, name='read'),
+
 ]
