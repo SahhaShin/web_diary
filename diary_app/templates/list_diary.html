@@ -137,33 +137,37 @@
         <h5 style="margin-left:50%;">
             {% for turn in check.all %}
 
-                {% if turn.id == 1 %}
+            <!-- 1일 -->
+
+            {% if turn.id == 1 %}
+                {% for i in n %}
                 <wr>
                     
                     <a href="/{{turn.id}}">{{turn.title1}}</a>
                 
                 </wr>
-            {% else %}
-            <wr>일기없음</wr>
-            
-            {% endif %}
-            {% endfor %}
+                {% endfor %}
 
-            
-         
 
-            {% for turn in check.all %}
-
-            {% if turn.id == 2 %}
-            <wr>
+            <!-- 2일 -->
+            {% elif turn.id == 2  %}
+                <wr>
+                    {% for i in n %}
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
                 
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
+                </wr>
+
+                
             {% else %}
-            <wr style="margin-left:2%;">일기없음</wr>
+                
+            
             {% endif %}
             {% endfor %}
+
+           
 
             
         </h5>
@@ -171,8 +175,6 @@
 
         <!-- 3~9일 -->
         <h5 style="font-size:20px;">&nbsp;</h5>
-        
-     
 
         <h5 style="margin-left:4%;">
             <wr>3
@@ -203,114 +205,110 @@
             </wr>
         </h5>
 
-
         <!-- 3~9일 일기제목 -->
-    
-        <h5 style="margin-left:3%;">
-            <wr>
+        <h5 style="margin-left: 3%;">
             {% for turn in check.all %}
+
+            <!-- 3일 -->
 
             {% if turn.id == 3 %}
-            <wr>
+                {% for i in n %}
+                <wr style="margin-left: 0;">
+                    
+                    <a href="/{{turn.id}}">{{turn.title1}}</a>
                 
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr>일기없음</wr>
+                </wr>
+                {% endfor %}
+
+
+            <!-- 4일 -->
+            {% elif turn.id == 4  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 5일 -->
+            {% elif turn.id == 5  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 6일 -->
+            {% elif turn.id == 6  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+                
+        
+
+                
+            <!-- 7일 -->
+            {% elif turn.id == 7  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+                
+            <!-- 8일 -->
+            {% elif turn.id == 8  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 9일 -->
+            {% elif turn.id == 9  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
             {% endif %}
             {% endfor %}
 
-            
-            
-            </wr> 
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 4 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left:5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 5 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left:4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-             
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 6 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
+           
 
             
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 7 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 8 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 9 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
         </h5>
 
+
+        
+
         <!-- 10~16일 -->
+        <h5 style="font-size:20px;">&nbsp;</h5>
         <h5 style="font-size:20px;">&nbsp;</h5>
      
 
@@ -344,116 +342,109 @@
         </h5>
 
         <!-- 10~16일 일기제목 -->
-    
-        <h5 style="margin-left:3%;">
+        <h5 style="margin-left: 3%;">
             {% for turn in check.all %}
+
+            <!-- 10일 -->
 
             {% if turn.id == 10 %}
-            <wr>
+                {% for i in n %}
+                <wr style="margin-left: 0;">
+                    
+                    <a href="/{{turn.id}}">{{turn.title1}}</a>
                 
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr>일기없음</wr>
+                </wr>
+                {% endfor %}
+
+
+            <!-- 11일 -->
+            {% elif turn.id == 11  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 12일 -->
+            {% elif turn.id == 12  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 13일 -->
+            {% elif turn.id == 13  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+                
+          
+
+                
+            <!-- 14일 -->
+            {% elif turn.id == 14  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+                
+            <!-- 15일 -->
+            {% elif turn.id == 15  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 16일 -->
+            {% elif turn.id == 16  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
             {% endif %}
             {% endfor %}
 
-        
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 11 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left:5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 12 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 13 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 14 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 15 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 16 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
+           
 
             
         </h5>
 
+        
+
 
         <!-- 17~23일 -->
+        <h5 style="font-size:20px;">&nbsp;</h5>
         <h5 style="font-size:20px;">&nbsp;</h5>
         
      
@@ -487,116 +478,9 @@
             </wr>
         </h5>
 
-        <!-- 17~23일 일기제목 -->
-    
-        <h5 style="margin-left:3%;">
-            {% for turn in check.all %}
-
-            {% if turn.id == 17 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr>일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 18 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left:5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 19 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 20 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 21 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 22 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 23 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-        </h5>
-
+        
         <!-- 24~30일 -->
+        <h5 style="font-size:20px;">&nbsp;</h5>
         <h5 style="font-size:20px;">&nbsp;</h5>
        
 
@@ -629,116 +513,107 @@
             </wr>
         </h5>
 
+
         <!-- 24~30일 일기제목 -->
-    
-        <h5 style="margin-left:3%;">
+        <h5 style="margin-left: 3%;">
             {% for turn in check.all %}
+
+            <!-- 24일 -->
 
             {% if turn.id == 24 %}
-            <wr>
+                {% for i in n %}
+                <wr style="margin-left: 0;">
+                    
+                    <a href="/{{turn.id}}">{{turn.title1}}</a>
                 
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr>일기없음</wr>
+                </wr>
+                {% endfor %}
+
+
+            <!-- 25일 -->
+            {% elif turn.id == 25  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 26일 -->
+            {% elif turn.id == 26  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 27일 -->
+            {% elif turn.id == 27  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+                
+     
+
+                
+            <!-- 28일 -->
+            {% elif turn.id == 28  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+                
+            <!-- 29일 -->
+            {% elif turn.id == 29  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 30일 -->
+            {% elif turn.id == 30  %}
+                <wr>
+                    {% for i in n %}
+                    
+                       
+                    <a href="/{{turn.id}}" style="margin-left: 2%;">{{turn.title1}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
             {% endif %}
             {% endfor %}
 
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 25 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left:5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 26 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 27 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 28 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 29 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
-
-            
-
-            {% for turn in check.all %}
-
-            {% if turn.id == 30 %}
-            <wr>
-                
-                <a href="#">{{turn.title1}}</a>
-            
-            </wr>
-            {% else %}
-            <wr style="margin-left: 4.5%;">일기없음</wr>
-            {% endif %}
-            {% endfor %}
+           
 
             
         </h5>
 
-
+       
         
       
       

@@ -26,7 +26,12 @@ urlpatterns = [
     path('list/', views.list, name='list'),
 
     path('storage/', views.storage, name='storage'),
+    path('storage_y/', views.storage_y, name='storage_y'),
+    path('<int:id>/storage_yc/', views.storage_yc, name='storage_yc'),
+    path('storage_m/', views.storage_m, name='storage_m'),
 
     path('<int:id>/',views.read, name='read'),
+
+    path('add/',views.add, name='add'),
 
 ]

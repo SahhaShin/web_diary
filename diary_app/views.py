@@ -14,13 +14,12 @@ def index(request):
 def yearly(request):
     if Yearly.objects is not None:
         content=Yearly.objects
-        q = Yearly.objects.annotate(num=Count('id'))
-        if q[0].num != 0:
-            count=q[0].num / 31
-        else:
-            count=0
+        a = Yearly.objects.annotate(num=Count('id'))
         
-        return render(request,'yearly.html',{'check':content, 'count':count})
+        count= 0 / 31
+        
+        
+        return render(request,'yearly.html',{'check':content, 'count':count, 'n' : range(1)})
     else:
         return render(request,'yearly.html')
    
@@ -29,9 +28,9 @@ def monthly(request):
     if Monthly.objects is not None:
         content=Monthly.objects
         q = Monthly.objects.annotate(num=Count('id'))
-        count=q[0].num / 31
+        count=0 / 31
         
-        return render(request,'monthly.html',{'check':content, 'count':count})
+        return render(request,'monthly.html',{'check':content, 'count':count, 'n' : range(1)})
     else:
         return render(request,'monthly.html')
  
@@ -44,8 +43,8 @@ def list(request):
         content=Diary.objects
         q = Diary.objects.annotate(num=Count('id'))
         count=q[0].num / 31
-        
-        return render(request,'list_diary.html',{'check':content, 'count':count})
+       
+        return render(request,'list_diary.html',{'check':content, 'count':count, 'n' : range(1)})
     else:
         return render(request,'list_diary.html')
     
@@ -65,8 +64,43 @@ def storage(request):
 
     return redirect('../list')
 
+def storage_y(request):
+    yearly_save=Yearly()
+    
+    yearly_save.title2=request.GET['title2']
+
+    yearly_save.box2=0
+  
+    yearly_save.save()
+
+    return redirect('../yearly')
+
+# 체크박스 상태 변화
+def storage_yc(request, id):
+    content=get_object_or_404(Yearly,pk=id)
+    if content.box == 0:
+        content.box2 = 1
+    else:
+        content.box2 = 0
+    return redirect('../yearly')
+
+
+
+def storage_m(request):
+    monthly_save=Diary()
+    
+    monthly_save.title3=request.GET['title3']
+
+    monthly_save.save()
+
+    return redirect('../monthly')
+
 def read(request,id):
     content=get_object_or_404(Diary,pk=id)
     return render(request,'read_diary.html',{'check':content})
+
+def add(request):
+    return render(request,'add.html')
+    
    
    

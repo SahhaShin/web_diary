@@ -12,8 +12,9 @@ class Diary(models.Model):
 
 class Yearly(models.Model):
     title2=models.CharField(max_length=50, blank=False)#목표
-
+    box2=models.IntegerField(blank=False, default=1) #체크박스여부
 
 class Monthly(models.Model):
     title3=models.CharField(max_length=50, blank=False)#목표
+    box3=models.IntegerField(blank=False, default=1) #체크박스여부
     
