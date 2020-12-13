@@ -9,7 +9,15 @@
 
     <!-- 부트스트랩 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    
+    <script>
+        function showPopup() 
+        { 
+            window.open("{% url 'add_m' %}", "a", "width=500px, height=300px, left=500, top=100"); 
+        }
+
+
+       
+    </script>
 </head>
 
 <body>
@@ -121,12 +129,50 @@
         <!-- 1~2일 -->
         <h5 style="margin-left:51%;">
             <wr>1
-                <a href="#"><img style="margin-left: 8%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 8%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left: 4%;">2   
-                <a href="#"><img style="margin-left: 8%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 8%;" src="/static/plus.png"></a>
             </wr>
+
+            
+        </h5>
+
+
+        <!-- 1~2일 계획 -->
+        <h5 style="margin-left: 50%;">
+            {% for turn in check.all %}
+
+                <!-- 1일 -->
+
+                {% if turn.id == 1 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+       
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 2일 -->
+                {% elif turn.id == 2  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+
+                    
+                {% endif %}
+            {% endfor %}
+
+           
 
             
         </h5>
@@ -134,70 +180,283 @@
 
         <!-- 3~9일 -->
         <h5 style="font-size:20px;">&nbsp;</h5>
-        <h5 style="font-size:20px;">&nbsp;</h5>
+        
      
 
         <h5 style="margin-left:4%;">
             <wr>3
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left:1%;">4    
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr>
 
             <wr style="margin-left:1%;">5
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left:1%;">6  
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr>
             <wr style="margin-left: 1%;">7    
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr>
 
             <wr style="margin-left:1%;">8
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left: 1%;">9  
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr>
+        </h5>
+
+        <!-- 3~9일 계획 -->
+        <h5 style="margin-left: 3%;">
+            {% for turn in check.all %}
+
+                <!-- 3일 -->
+
+                {% if turn.id == 3 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+                           
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 4일 -->
+                {% elif turn.id == 4  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 5일 -->
+                {% elif turn.id == 5  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 6일 -->
+                {% elif turn.id == 6  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                
+                <!-- 7일 -->
+                {% elif turn.id == 7  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                <!-- 8일 -->
+                {% elif turn.id == 8  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                <!-- 9일 -->
+                {% elif turn.id == 9  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                    
+                {% endif %}
+            {% endfor %}
+
+           
+
+            
         </h5>
 
         <!-- 10~16일 -->
         <h5 style="font-size:20px;">&nbsp;</h5>
-        <h5 style="font-size:20px;">&nbsp;</h5>
-     
-
+        
         <h5 style="margin-left:4%;">
             <wr>10
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left:1%;">11    
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr>
 
             <wr style="margin-left:1%;">12
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left:1%;">13 
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr>
             <wr style="margin-left: 1%;">14
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr>
 
             <wr style="margin-left:1%;">15
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left: 1%;">16 
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr>
+        </h5>
+
+
+
+        <!-- 10~16일 계획 -->
+        <h5 style="margin-left: 3%;">
+            {% for turn in check.all %}
+
+                <!-- 10일 -->
+
+                {% if turn.id == 10 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+                           
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 11일 -->
+                {% elif turn.id == 11  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 12일 -->
+                {% elif turn.id == 12  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 13일 -->
+                {% elif turn.id == 13  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                    <!-- 14일 -->
+                {% elif turn.id == 14  %}
+                <wr style="margin-left: 9%;">
+                    {% for i in n %}
+                    
+                    
+                    <a><input type="checkbox">{{turn.title3}}</a>
+                    {% endfor %}
+                
+                
+                </wr>
+                <!-- 15일 -->
+                {% elif turn.id == 15  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+                <!-- 16일 -->
+                {% elif turn.id == 16  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                <!-- 17일 -->
+                {% elif turn.id == 17  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                <!-- 18일 -->
+                {% elif turn.id == 18  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                    
+                {% endif %}
+            {% endfor %}
+
+           
+
+            
         </h5>
 
 
@@ -208,31 +467,129 @@
 
         <h5 style="margin-left:4%;">
             <wr>17
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left:1%;">18   
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr>
 
             <wr style="margin-left:1%;">19
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left:1%;">20 
-                <a href="#"><img style="margin-left: 4%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4%;" src="/static/plus.png"></a>
             </wr>
             <wr style="margin-left: 1%;">21
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr>
 
             <wr style="margin-left:1%;">22
-                <a href="#"><img style="margin-left: 4%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left: 1%;">23
-                <a href="#"><img style="margin-left: 4%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4%;" src="/static/plus.png"></a>
             </wr>
+        </h5>
+
+
+        <!-- 17~23일 계획 -->
+        <h5 style="margin-left: 3%;">
+            {% for turn in check.all %}
+
+                <!-- 17일 -->
+
+                {% if turn.id == 17 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+                           
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 18일 -->
+                {% elif turn.id == 18  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 19일 -->
+                {% elif turn.id == 19  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 20일 -->
+                {% elif turn.id == 20  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 21일 -->
+                {% elif turn.id == 21  %}
+                <wr style="margin-left: 9%;">
+                    {% for i in n %}
+                    
+                    
+                    <a><input type="checkbox">{{turn.title3}}</a>
+                    {% endfor %}
+                
+                
+                </wr>
+                <!-- 22일 -->
+                {% elif turn.id == 22  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+                <!-- 23일 -->
+                {% elif turn.id == 23  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+
+                    
+                {% endif %}
+            {% endfor %}
+
+           
+
+            
         </h5>
 
         <!-- 24~30일 -->
@@ -242,31 +599,132 @@
 
         <h5 style="margin-left:3.5%;">
             <wr>24
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left:0.5%;">25   
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr>
 
             <wr style="margin-left:0.5%;">26
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left:0.5%;">27 
-                <a href="#"><img style="margin-left: 4%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4%;" src="/static/plus.png"></a>
             </wr>
             <wr style="margin-left: 1%;">28
-                <a href="#"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
             </wr>
 
             <wr style="margin-left:0.5%;">29
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr> 
 
             <wr style="margin-left: 0.5%;">30
-                <a href="#"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
             </wr>
+        </h5>
+
+
+
+       
+
+        <!-- 24~30일 계획 -->
+        <h5 style="margin-left: 3%;">
+            {% for turn in check.all %}
+
+                <!-- 24일 -->
+
+                {% if turn.id == 24 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+                           
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 25일 -->
+                {% elif turn.id == 25  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 26일 -->
+                {% elif turn.id == 26  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 27일 -->
+                {% elif turn.id == 27  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 28일 -->
+                {% elif turn.id == 28  %}
+                <wr style="margin-left: 9%;">
+                    {% for i in n %}
+                    
+                    
+                    <a><input type="checkbox">{{turn.title3}}</a>
+                    {% endfor %}
+                
+                
+                </wr>
+                <!-- 29일 -->
+                {% elif turn.id == 29  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+                <!-- 30일 -->
+                {% elif turn.id == 30  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+
+                    
+                {% endif %}
+            {% endfor %}
+
+           
+
+            
         </h5>
 
 

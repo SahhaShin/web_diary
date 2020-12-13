@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from django.db.models import Count
+from django.db.models import Count, Avg, Sum
 
 
 from .models import Diary,Yearly,Monthly
@@ -14,9 +14,18 @@ def index(request):
 def yearly(request):
     if Yearly.objects is not None:
         content=Yearly.objects
-        a = Yearly.objects.annotate(num=Count('id'))
+        q = Yearly.objects.annotate(num=Count('id'))
+        q_2 = Yearly.objects.annotate(num=Count('box2'))
+        count=0
+        for i in q:
+            count=count+1
         
-        count= 0 / 31
+        count_2=0
+        for j in q_2:
+            if j.box2==1:
+                count_2=count_2+1
+
+        count=count_2/count
         
         
         return render(request,'yearly.html',{'check':content, 'count':count, 'n' : range(1)})
@@ -28,7 +37,17 @@ def monthly(request):
     if Monthly.objects is not None:
         content=Monthly.objects
         q = Monthly.objects.annotate(num=Count('id'))
-        count=0 / 31
+        count=0
+        for i in q:
+            count=count+1
+        q_2 = Monthly.objects.annotate(num=Count('box3'))
+
+        count_2=0
+        for j in q_2:
+            if j.box3==1:
+                count_2=count_2+1
+
+        count=count_2/count
         
         return render(request,'monthly.html',{'check':content, 'count':count, 'n' : range(1)})
     else:
@@ -42,8 +61,11 @@ def list(request):
     if Diary.objects is not None:
         content=Diary.objects
         q = Diary.objects.annotate(num=Count('id'))
-        count=q[0].num / 31
-       
+        count=0
+        for i in q:
+            count=count+1
+        count=count/31
+
         return render(request,'list_diary.html',{'check':content, 'count':count, 'n' : range(1)})
     else:
         return render(request,'list_diary.html')
@@ -87,7 +109,7 @@ def storage_yc(request, id):
 
 
 def storage_m(request):
-    monthly_save=Diary()
+    monthly_save=Monthly()
     
     monthly_save.title3=request.GET['title3']
 
@@ -99,8 +121,11 @@ def read(request,id):
     content=get_object_or_404(Diary,pk=id)
     return render(request,'read_diary.html',{'check':content})
 
-def add(request):
-    return render(request,'add.html')
+def add_y(request):
+    return render(request,'add_y.html')
+
+def add_m(request):
+    return render(request,'add_m.html')
     
    
    

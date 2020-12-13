@@ -13,11 +13,34 @@
     <script>
         function showPopup() 
         { 
-            window.open("{% url 'add' %}", "a", "width=500px, height=300px, left=500, top=100"); 
+            window.open("{% url 'add_y' %}", "a", "width=500px, height=300px, left=500, top=100"); 
         }
 
 
        
+    </script>
+
+
+    <!-- 체크박스 상황 확인 -->
+    <script>
+        per=1;
+        // 다음 버튼 클릭
+        function chk(){
+            
+            
+            // 첫번째 체크박스가 체크되어 있는경우
+            if($("#chk1").is(":checked")){
+             
+                alert("체크 되었습니다.");
+                
+            } else { // 첫번째 체크박스가 체크 되어있지 않은 있는경우
+          
+                alert("체크가 해제되었습니다.");
+                return false;
+            }
+            
+           
+        };
     </script>
    
 </head>
@@ -97,7 +120,8 @@
     <div class="entry">
         <!-- 1~4월 -->
         <h5 style="font-size:30px;">&nbsp;</h5>
-        <h5 style="font-size:30px; margin-left: 5%;"><img src="/static/star.png" style="width: 2%;">달성률 <wr style="color: red;">{{count}} %</wr> </h5>
+        <h5 style="font-size:30px; margin-left: 5%;"><img src="/static/star.png" style="width: 2%;">달성률 <wr style="color: red;">
+            {{count}}%</wr> </h5>
 
         <h5 style="margin-left:8%; top:10%">
             <wr>january
@@ -127,13 +151,11 @@
                         <wr style="margin-left: 0;">
                             
 
-                            {% if turn.box2 == 1 %}
-                            <!--  url '/{{turn.id}}/storage_yc' -->
-                                <a><input type="checkbox" name="box2" value="1" checked>{{turn.title2}}</button>
                             
-                            {% elif turn.box2 == 0 %}
-                                <a><input type="checkbox" name="box2" value="0" >{{turn.title2}}</a>
-                            {% endif %}
+                            <!--  url '/{{turn.id}}/storage_yc' -->
+                            <a><input type="checkbox" name="box2" value="1" id="chk1" onclick="chk();" checked>{{turn.title2}}</button>
+                            
+                            
                            
                                 
                         </wr>

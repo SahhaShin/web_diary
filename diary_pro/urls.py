@@ -32,6 +32,7 @@ urlpatterns = [
 
     path('<int:id>/',views.read, name='read'),
 
-    path('add/',views.add, name='add'),
+    path('add_y/',views.add_y, name='add_y'),
+    path('add_m/',views.add_m, name='add_m'),
 
 ]
