@@ -99,7 +99,7 @@ body{
     background-repeat: no-repeat;
     background-size: 100%;
     
-    z-index:100;
+  
     margin-top: 3%;
     margin-left: 4%;
     
@@ -119,6 +119,7 @@ body{
     color:white;
     border-color: rgb(255, 255, 255);
 }
+
 
 ::placeholder{
     text-align: center;

@@ -92,37 +92,45 @@
     <div class="dropdown">
         <button class="dropbtn">Year</button>
         <div class="dropdown-content">
-          <a href="#">2021</a>
-          <a href="#">2022</a>
-          <a href="#">2023</a>
-          <a href="#">2024</a>
-          <a href="#">2025</a>
+          <a href="/yearly/2020">2021</a>
+          <a href="/yearly/2021">2022</a>
+          <a href="/yearly/2022">2023</a>
+          <a href="/yearly/2023">2024</a>
+          <a href="/yearly/2024">2025</a>
         </div>
     </div>
     <!--달력 상단 -->
+    
 
 
     <div class="cal">
-        <div>
-            <a href="#"><img src="/static/prev.png" class="img_size"></a>
+           
+                <div>
+                    <a href="/{{year}}/yearly"><img src="/static/prev.png" class="img_size"></a>
 
 
-            <wh style="color: white; font-size:30px; margin-left: 2%; margin-right: 2%;">2021</wh>
+                    <wh style="color: white; font-size:30px; margin-left: 2%; margin-right: 2%;">{{year}}</wh>
 
 
-            <a href="#"><img src="/static/next.png" class="img_size"></a>
-        </div>
+                    <a href="/yearly/{{year}}"><img src="/static/next.png" class="img_size"></a>
+                </div>
+            
+        
         
 
     </div>
 
     <!-- 달력 -->
+    
     <div class="entry">
+
+       
         <!-- 1~4월 -->
         <h5 style="font-size:30px;">&nbsp;</h5>
         <h5 style="font-size:30px; margin-left: 5%;"><img src="/static/star.png" style="width: 2%;">달성률 <wr style="color: red;">
             {{count}}%</wr> </h5>
-
+       
+       
         <h5 style="margin-left:8%; top:10%">
             <wr>january
                 <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
@@ -140,15 +148,23 @@
                 <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
             </wr>
         </h5>
+
+
+  
+        {% if year == 2021 %}
+        
         <!-- 1~4월 일기제목 -->
+        
         <h5 style="margin-left: 6%;">
+
             {% for turn in check.all %}
+            {% if turn.year1 == year %}
 
                 <!-- 1월 -->
 
                 {% if turn.id == 1 %}
                     {% for i in n %}
-                        <wr style="margin-left: 0;">
+                        <wr>
                             
 
                             
@@ -168,7 +184,7 @@
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title2}}</a>
+                        <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                         {% endfor %}
                     
                     
@@ -180,7 +196,7 @@
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title2}}</a>
+                        <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                         {% endfor %}
                     
                     
@@ -192,7 +208,7 @@
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title2}}</a>
+                        <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                         {% endfor %}
                     
                     
@@ -200,6 +216,9 @@
 
                     
                 {% endif %}
+            
+           
+            {% endif %}
             {% endfor %}
 
            
@@ -211,7 +230,10 @@
         <h5 style="font-size:30px;">&nbsp;</h5>
         <h5 style="font-size:35px;">&nbsp;</h5>
         
-        <h5 style="margin-left:10%; top:10%">
+        
+        
+        
+        <h5 style="margin-left:10%; ">
             <wr>may
                 <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
             </wr> 
@@ -232,6 +254,7 @@
         <!-- 5~8월 일기제목 -->
         <h5 style="margin-left: 6%;">
             {% for turn in check.all %}
+            {% if turn.year1 == year %}
 
             <!-- 5월 -->
 
@@ -239,7 +262,7 @@
                 {% for i in n %}
                 <wr style="margin-left: 0;">
                     
-                    <a><input type="checkbox">{{turn.title2}}</a>
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                 
                 </wr>
                 {% endfor %}
@@ -247,23 +270,24 @@
 
             <!-- 6월 -->
             {% elif turn.id == 6  %}
-                <wr style="margin-left: 10%;">
+                <wr style="margin-left: 11%;">
                     {% for i in n %}
                     
                        
-                    <a><input type="checkbox">{{turn.title2}}</a>
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                     {% endfor %}
                    
                 
                 </wr>
+                
 
             <!-- 7월 -->
             {% elif turn.id == 7  %}
-                <wr style="margin-left: 15%;">
+                <wr style="margin-left: 14%;">
                     {% for i in n %}
                     
                        
-                    <a><input type="checkbox">{{turn.title2}}</a>
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                     {% endfor %}
                    
                 
@@ -271,17 +295,18 @@
 
             <!-- 8월 -->
             {% elif turn.id == 8  %}
-                <wr style="margin-left: 10%;">
+                <wr style="margin-left: 11%;">
                     {% for i in n %}
                     
                        
-                    <a><input type="checkbox">{{turn.title2}}</a>
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                     {% endfor %}
                    
                 
                 </wr>
 
-                
+               
+            {% endif %}
             {% endif %}
             {% endfor %}
 
@@ -293,9 +318,11 @@
 
         <!-- 9~12월 -->
         <h5 style="font-size:30px;">&nbsp;</h5>
-        <h5 style="font-size:30px;">&nbsp;</h5>
-        <h5 style="font-size:25px;">&nbsp;</h5>
-
+        <h5 style="font-size:35px;">&nbsp;</h5>
+       
+        
+      
+     
         <h5 style="margin-left:7%; top:10%">
             <wr>september
                 <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
@@ -317,6 +344,7 @@
         <!-- 9~12월 일기제목 -->
         <h5 style="margin-left: 6%;">
             {% for turn in check.all %}
+            {% if turn.year1 == year %}
 
             <!-- 9월 -->
 
@@ -324,7 +352,7 @@
                 {% for i in n %}
                 <wr style="margin-left: 0;">
                     
-                    <a><input type="checkbox">{{turn.title2}}</a>
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                 
                 </wr>
                 {% endfor %}
@@ -336,7 +364,7 @@
                     {% for i in n %}
                     
                        
-                    <a><input type="checkbox">{{turn.title2}}</a>
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                     {% endfor %}
                    
                 
@@ -348,7 +376,7 @@
                     {% for i in n %}
                     
                        
-                    <a><input type="checkbox">{{turn.title2}}</a>
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                     {% endfor %}
                    
                 
@@ -360,13 +388,104 @@
                     {% for i in n %}
                     
                        
-                    <a><input type="checkbox">{{turn.title2}}</a>
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
                     {% endfor %}
                    
                 
                 </wr>
 
-                
+            
+               
+
+
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+            
+
+           
+
+            
+        </h5>
+        {% endif %}
+
+
+
+
+
+
+        <!-- ---------------------2021이후 -->
+
+  
+        {% if year != 2021 %}
+        
+        <!-- 1~4월 일기제목 -->
+        
+        <h5 style="margin-left: 6%;">
+
+            {% for turn in check.all %}
+            {% if turn.year1 == year %}
+            
+
+                <!-- 1월 -->
+
+                {% if turn.id == 1 %}
+                    {% for i in n %}
+                        <wr>
+                            
+
+                            
+                            <!--  url '/{{turn.id}}/storage_yc' -->
+                            <a><input type="checkbox" name="box2" value="1" id="chk1" onclick="chk();" checked>{{turn.title2}}</button>
+                            
+                            
+                           
+                                
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 2월 -->
+                {% elif turn.id == 2  %}
+                    <wr style="margin-left: 10%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 3월 -->
+                {% elif turn.id == 3  %}
+                    <wr style="margin-left: 15%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 4월 -->
+                {% elif turn.id == 4  %}
+                    <wr style="margin-left: 10%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                    
+                {% endif %}
+            
+           
             {% endif %}
             {% endfor %}
 
@@ -374,7 +493,194 @@
 
             
         </h5>
+
+        <!-- 5~8월 -->
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        
+        
+        
+        
+        <h5 style="margin-left:10%; ">
+            <wr>may
+                <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 14%;">jun    
+                <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left: 16%;">july
+                <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 11%;">august  
+                <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+        </h5>
+
+        <!-- 5~8월 일기제목 -->
+        <h5 style="margin-left: 6%;">
+            {% for turn in check.all %}
+            {% if turn.year1 == year %}
+
+            <!-- 5월 -->
+
+            {% if turn.id == 5 %}
+                {% for i in n %}
+                <wr style="margin-left: 0;">
+                    
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                
+                </wr>
+                {% endfor %}
+
+
+            <!-- 6월 -->
+            {% elif turn.id == 6  %}
+                <wr style="margin-left: 11%;">
+                    {% for i in n %}
+                    
+                       
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+                
+
+            <!-- 7월 -->
+            {% elif turn.id == 7  %}
+                <wr style="margin-left: 14%;">
+                    {% for i in n %}
+                    
+                       
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 8월 -->
+            {% elif turn.id == 8  %}
+                <wr style="margin-left: 11%;">
+                    {% for i in n %}
+                    
+                       
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+               
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+           
+
+            
+        </h5>
+
+
+        <!-- 9~12월 -->
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        <h5 style="font-size:30px;">&nbsp;</h5>
+        <h5 style="font-size:30px;">&nbsp;</h5>
+       
+        
       
+     
+        <h5 style="margin-left:7%; top:10%">
+            <wr>september
+                <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 11%;">october  
+                <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left: 13%;">november
+                <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 9%;">december
+                <a onclick="showPopup();"><img style="margin-left: 1%;" src="/static/plus.png"></a>
+            </wr>
+        </h5>
+
+        <!-- 9~12월 일기제목 -->
+        <h5 style="margin-left: 6%;">
+            {% for turn in check.all %}
+            {% if turn.year1 == year %}
+
+            <!-- 9월 -->
+
+            {% if turn.id == 9 %}
+                {% for i in n %}
+                <wr style="margin-left: 0;">
+                    
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                
+                </wr>
+                {% endfor %}
+
+
+            <!-- 10월 -->
+            {% elif turn.id == 10  %}
+                <wr style="margin-left: 10%;">
+                    {% for i in n %}
+                    
+                       
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 11월 -->
+            {% elif turn.id == 11  %}
+                <wr style="margin-left: 15%;">
+                    {% for i in n %}
+                    
+                       
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            <!-- 12월 -->
+            {% elif turn.id == 12  %}
+                <wr style="margin-left: 10%;">
+                    {% for i in n %}
+                    
+                       
+                    <a><input type="checkbox" id="chk1" onclick="chk();">{{turn.title2}}</a>
+                    {% endfor %}
+                   
+                
+                </wr>
+
+            
+               
+
+
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+
+            
+
+           
+
+            
+        </h5>
+     
+        {% endif %}
+ 
     </div>
 
 

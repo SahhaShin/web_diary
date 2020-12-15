@@ -18,6 +18,28 @@
 
        
     </script>
+
+    <!-- 체크박스 상황 확인 -->
+    <script>
+        per=1;
+        // 다음 버튼 클릭
+        function chk(){
+            
+            
+            // 첫번째 체크박스가 체크되어 있는경우
+            if($("#chk1").is(":checked")){
+             
+                alert("체크 되었습니다.");
+                
+            } else { // 첫번째 체크박스가 체크 되어있지 않은 있는경우
+          
+                alert("체크가 해제되었습니다.");
+                return false;
+            }
+            
+           
+        };
+    </script>
 </head>
 
 <body>
@@ -67,18 +89,18 @@
     <div class="dropdown">
         <button class="dropbtn">Month</button>
         <div class="dropdown-content">
-          <a href="#">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">6</a>
-          <a href="#">7</a>
-          <a href="#">8</a>
-          <a href="#">9</a>
-          <a href="#">10</a>
-          <a href="#">11</a>
-          <a href="#">12</a>
+          <a href="/monthly">1</a>
+          <a href="/monthly/1">2</a>
+          <a href="/monthly/2">3</a>
+          <a href="/monthly/3">4</a>
+          <a href="/monthly/4">5</a>
+          <a href="/monthly/5">6</a>
+          <a href="/monthly/6">7</a>
+          <a href="/monthly/7">8</a>
+          <a href="/monthly/8">9</a>
+          <a href="/monthly/9">10</a>
+          <a href="/monthly/10">11</a>
+          <a href="/monthly/11">12</a>
         </div>
     </div>
     <!--달력 상단 -->
@@ -86,13 +108,13 @@
 
     <div class="cal">
         <div>
-            <a href="#"><img src="/static/prev.png" class="img_size"></a>
+            <a href="/{{month}}/monthly"><img src="/static/prev.png" class="img_size"></a>
 
 
-            <wh style="color: white; font-size:30px; margin-left: 2%; margin-right: 2%;">1</wh>
+            <wh style="color: white; font-size:30px; margin-left: 2%; margin-right: 2%;">{{month}}</wh>
 
 
-            <a href="#"><img src="/static/next.png" class="img_size"></a>
+            <a href="/monthly/{{month}}"><img src="/static/next.png" class="img_size"></a>
         </div>
         
 
@@ -125,7 +147,7 @@
 
 
 
-
+        
         <!-- 1~2일 -->
         <h5 style="margin-left:51%;">
             <wr>1
@@ -139,10 +161,11 @@
             
         </h5>
 
-
+        {% if month == 1 %}
         <!-- 1~2일 계획 -->
         <h5 style="margin-left: 50%;">
             {% for turn in check.all %}
+            {% if turn.month2 == month %}
 
                 <!-- 1일 -->
 
@@ -150,7 +173,7 @@
                     {% for i in n %}
                         <wr style="margin-left: 0;">
 
-                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();" >{{turn.title3}}</a>
        
                         </wr>
                     {% endfor %}
@@ -161,7 +184,7 @@
                     <wr style="margin-left: 9%;">
                         {% for i in n %}
 
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -170,6 +193,7 @@
 
                     
                 {% endif %}
+            {% endif %}
             {% endfor %}
 
            
@@ -215,6 +239,7 @@
         <!-- 3~9일 계획 -->
         <h5 style="margin-left: 3%;">
             {% for turn in check.all %}
+            {% if turn.month2 == month %}
 
                 <!-- 3일 -->
 
@@ -222,7 +247,7 @@
                     {% for i in n %}
                         <wr style="margin-left: 0;">
 
-                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();" >{{turn.title3}}</a>
                            
                         </wr>
                     {% endfor %}
@@ -234,7 +259,7 @@
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -242,11 +267,11 @@
 
                 <!-- 5일 -->
                 {% elif turn.id == 5  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -254,11 +279,11 @@
 
                 <!-- 6일 -->
                 {% elif turn.id == 6  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -267,33 +292,33 @@
                 
                 <!-- 7일 -->
                 {% elif turn.id == 7  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
                     </wr>
                 <!-- 8일 -->
                 {% elif turn.id == 8  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
                     </wr>
                 <!-- 9일 -->
                 {% elif turn.id == 9  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -301,6 +326,7 @@
 
                     
                 {% endif %}
+            {% endif %}
             {% endfor %}
 
            
@@ -345,6 +371,7 @@
         <!-- 10~16일 계획 -->
         <h5 style="margin-left: 3%;">
             {% for turn in check.all %}
+            {% if turn.month2 == month %}
 
                 <!-- 10일 -->
 
@@ -352,7 +379,7 @@
                     {% for i in n %}
                         <wr style="margin-left: 0;">
 
-                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                            
                         </wr>
                     {% endfor %}
@@ -360,11 +387,11 @@
 
                 <!-- 11일 -->
                 {% elif turn.id == 11  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -372,11 +399,11 @@
 
                 <!-- 12일 -->
                 {% elif turn.id == 12  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -384,33 +411,33 @@
 
                 <!-- 13일 -->
                 {% elif turn.id == 13  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
                     </wr>
                     <!-- 14일 -->
                 {% elif turn.id == 14  %}
-                <wr style="margin-left: 9%;">
+                <wr style="margin-left: 5%;">
                     {% for i in n %}
                     
                     
-                    <a><input type="checkbox">{{turn.title3}}</a>
+                    <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                     {% endfor %}
                 
                 
                 </wr>
                 <!-- 15일 -->
                 {% elif turn.id == 15  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -418,33 +445,33 @@
                 
                 <!-- 16일 -->
                 {% elif turn.id == 16  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
                     </wr>
                 <!-- 17일 -->
                 {% elif turn.id == 17  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
                     </wr>
                 <!-- 18일 -->
                 {% elif turn.id == 18  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -452,6 +479,7 @@
 
                     
                 {% endif %}
+            {% endif %}
             {% endfor %}
 
            
@@ -498,6 +526,7 @@
         <!-- 17~23일 계획 -->
         <h5 style="margin-left: 3%;">
             {% for turn in check.all %}
+            {% if turn.month2 == month %}
 
                 <!-- 17일 -->
 
@@ -505,7 +534,7 @@
                     {% for i in n %}
                         <wr style="margin-left: 0;">
 
-                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();" >{{turn.title3}}</a>
                            
                         </wr>
                     {% endfor %}
@@ -513,11 +542,11 @@
 
                 <!-- 18일 -->
                 {% elif turn.id == 18  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -525,11 +554,11 @@
 
                 <!-- 19일 -->
                 {% elif turn.id == 19  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -537,11 +566,11 @@
 
                 <!-- 20일 -->
                 {% elif turn.id == 20  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -549,22 +578,22 @@
 
                 <!-- 21일 -->
                 {% elif turn.id == 21  %}
-                <wr style="margin-left: 9%;">
+                <wr style="margin-left: 5%;">
                     {% for i in n %}
                     
                     
-                    <a><input type="checkbox">{{turn.title3}}</a>
+                    <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                     {% endfor %}
                 
                 
                 </wr>
                 <!-- 22일 -->
                 {% elif turn.id == 22  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -572,11 +601,11 @@
                 
                 <!-- 23일 -->
                 {% elif turn.id == 23  %}
-                    <wr style="margin-left: 9%;">
+                    <wr style="margin-left: 5%;">
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -585,6 +614,7 @@
 
                     
                 {% endif %}
+            {% endif %}
             {% endfor %}
 
            
@@ -633,6 +663,7 @@
         <!-- 24~30일 계획 -->
         <h5 style="margin-left: 3%;">
             {% for turn in check.all %}
+            {% if turn.month2 == month %}
 
                 <!-- 24일 -->
 
@@ -640,7 +671,610 @@
                     {% for i in n %}
                         <wr style="margin-left: 0;">
 
-                                <a><input type="checkbox" name="box2" value="0" >{{turn.title3}}</a>
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();" >{{turn.title3}}</a>
+                           
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 25일 -->
+                {% elif turn.id == 25  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 26일 -->
+                {% elif turn.id == 26  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 27일 -->
+                {% elif turn.id == 27  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 28일 -->
+                {% elif turn.id == 28  %}
+                <wr style="margin-left: 5%;">
+                    {% for i in n %}
+                    
+                    
+                    <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                    {% endfor %}
+                
+                
+                </wr>
+                <!-- 29일 -->
+                {% elif turn.id == 29  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+                <!-- 30일 -->
+                {% elif turn.id == 30  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+
+                    
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+
+           
+
+            
+        </h5>
+        {% endif %}
+
+
+        <!-- -------------1일 이외-------------------------------------- -->
+        {% if month != 1 %}
+        <!-- 1~2일 계획 -->
+        <h5 style="margin-left: 50%;">
+            {% for turn in check.all %}
+            {% if turn.month2 == month %}
+
+                <!-- 1일 -->
+
+                {% if turn.id == 1 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();" >{{turn.title3}}</a>
+       
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 2일 -->
+                {% elif turn.id == 2  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+
+                    
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+
+           
+
+            
+        </h5>
+
+
+        <!-- 3~9일 -->
+        <h5 style="font-size:20px;">&nbsp;</h5>
+        <h5 style="font-size:20px;">&nbsp;</h5>
+        
+     
+
+        <h5 style="margin-left:4%;">
+            <wr>3
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left:1%;">4    
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left:1%;">5
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left:1%;">6  
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr>
+            <wr style="margin-left: 1%;">7    
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left:1%;">8
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 1%;">9  
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr>
+        </h5>
+
+        <!-- 3~9일 계획 -->
+        <h5 style="margin-left: 3%;">
+            {% for turn in check.all %}
+            {% if turn.month2 == month %}
+
+                <!-- 3일 -->
+
+                {% if turn.id == 3 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();" >{{turn.title3}}</a>
+                           
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 4일 -->
+                {% elif turn.id == 4  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 5일 -->
+                {% elif turn.id == 5  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 6일 -->
+                {% elif turn.id == 6  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                
+                <!-- 7일 -->
+                {% elif turn.id == 7  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                <!-- 8일 -->
+                {% elif turn.id == 8  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                <!-- 9일 -->
+                {% elif turn.id == 9  %}
+                    <wr style="margin-left: 5%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                    
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+
+           
+
+            
+        </h5>
+
+        <!-- 10~16일 -->
+        <h5 style="font-size:20px;">&nbsp;</h5>
+        <h5 style="font-size:20px;">&nbsp;</h5>
+        
+        <h5 style="margin-left:4%;">
+            <wr>10
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left:1%;">11    
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left:1%;">12
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left:1%;">13 
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr>
+            <wr style="margin-left: 1%;">14
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left:1%;">15
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 1%;">16 
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr>
+        </h5>
+
+
+
+        <!-- 10~16일 계획 -->
+        <h5 style="margin-left: 3%;">
+            {% for turn in check.all %}
+            {% if turn.month2 == month %}
+
+                <!-- 10일 -->
+
+                {% if turn.id == 10 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                           
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 11일 -->
+                {% elif turn.id == 11  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 12일 -->
+                {% elif turn.id == 12  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 13일 -->
+                {% elif turn.id == 13  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                    <!-- 14일 -->
+                {% elif turn.id == 14  %}
+                <wr style="margin-left: 9%;">
+                    {% for i in n %}
+                    
+                    
+                    <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                    {% endfor %}
+                
+                
+                </wr>
+                <!-- 15일 -->
+                {% elif turn.id == 15  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+                <!-- 16일 -->
+                {% elif turn.id == 16  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                <!-- 17일 -->
+                {% elif turn.id == 17  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                <!-- 18일 -->
+                {% elif turn.id == 18  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                    
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+
+           
+
+            
+        </h5>
+
+
+        <!-- 17~23일 -->
+        <h5 style="font-size:20px;">&nbsp;</h5>
+        <h5 style="font-size:20px;">&nbsp;</h5>
+     
+
+        <h5 style="margin-left:4%;">
+            <wr>17
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left:1%;">18   
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left:1%;">19
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left:1%;">20 
+                <a onclick="showPopup();"><img style="margin-left: 4%;" src="/static/plus.png"></a>
+            </wr>
+            <wr style="margin-left: 1%;">21
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left:1%;">22
+                <a onclick="showPopup();"><img style="margin-left: 4%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 1%;">23
+                <a onclick="showPopup();"><img style="margin-left: 4%;" src="/static/plus.png"></a>
+            </wr>
+        </h5>
+
+
+        <!-- 17~23일 계획 -->
+        <h5 style="margin-left: 3%;">
+            {% for turn in check.all %}
+            {% if turn.month2 == month %}
+
+                <!-- 17일 -->
+
+                {% if turn.id == 17 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();" >{{turn.title3}}</a>
+                           
+                        </wr>
+                    {% endfor %}
+
+
+                <!-- 18일 -->
+                {% elif turn.id == 18  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 19일 -->
+                {% elif turn.id == 19  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 20일 -->
+                {% elif turn.id == 20  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+
+                <!-- 21일 -->
+                {% elif turn.id == 21  %}
+                <wr style="margin-left: 9%;">
+                    {% for i in n %}
+                    
+                    
+                    <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                    {% endfor %}
+                
+                
+                </wr>
+                <!-- 22일 -->
+                {% elif turn.id == 22  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+                <!-- 23일 -->
+                {% elif turn.id == 23  %}
+                    <wr style="margin-left: 9%;">
+                        {% for i in n %}
+                        
+                        
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
+                        {% endfor %}
+                    
+                    
+                    </wr>
+                
+
+                    
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+
+           
+
+            
+        </h5>
+
+        <!-- 24~30일 -->
+        <h5 style="font-size:20px;">&nbsp;</h5>
+        <h5 style="font-size:20px;">&nbsp;</h5>
+     
+
+        <h5 style="margin-left:3.5%;">
+            <wr>24
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left:0.5%;">25   
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left:0.5%;">26
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left:0.5%;">27 
+                <a onclick="showPopup();"><img style="margin-left: 4%;" src="/static/plus.png"></a>
+            </wr>
+            <wr style="margin-left: 1%;">28
+                <a onclick="showPopup();"><img style="margin-left: 4.5%;" src="/static/plus.png"></a>
+            </wr>
+
+            <wr style="margin-left:0.5%;">29
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr> 
+
+            <wr style="margin-left: 0.5%;">30
+                <a onclick="showPopup();"><img style="margin-left: 5%;" src="/static/plus.png"></a>
+            </wr>
+        </h5>
+
+
+
+       
+
+        <!-- 24~30일 계획 -->
+        <h5 style="margin-left: 3%;">
+            {% for turn in check.all %}
+            {% if turn.month2 == month %}
+
+                <!-- 24일 -->
+
+                {% if turn.id == 24 %}
+                    {% for i in n %}
+                        <wr style="margin-left: 0;">
+
+                                <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();" >{{turn.title3}}</a>
                            
                         </wr>
                     {% endfor %}
@@ -652,7 +1286,7 @@
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -664,7 +1298,7 @@
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -676,7 +1310,7 @@
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -688,7 +1322,7 @@
                     {% for i in n %}
                     
                     
-                    <a><input type="checkbox">{{turn.title3}}</a>
+                    <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                     {% endfor %}
                 
                 
@@ -699,7 +1333,7 @@
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -711,7 +1345,7 @@
                         {% for i in n %}
                         
                         
-                        <a><input type="checkbox">{{turn.title3}}</a>
+                        <a><input type="checkbox" name="box2" value="0" id="chk1" onclick="chk();">{{turn.title3}}</a>
                         {% endfor %}
                     
                     
@@ -720,13 +1354,14 @@
 
                     
                 {% endif %}
+            {% endif %}
             {% endfor %}
 
            
 
             
         </h5>
-
+        {% endif %}
 
         
       

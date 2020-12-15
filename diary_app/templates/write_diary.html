@@ -48,87 +48,107 @@
 
 
 
-    <script type="text/javascript" src="/static/js/yearly.js"></script>
+    <script type="text/javascript" src="/static/js/write.js"></script>
     <!-- navbar 끝 -->
 
+    
+    
+    
+    
+    
     <!-- 일기쓰는 칸 -->
     <form action="{% url 'storage' %}" method="GET">
+        
 
         <div class="diary_area">
             
-
-            <input type="date" style="width: 50%;" name=date1>
+            
+    
+            <input type="date"  style="width: 50%;" name=date1>
             <input type="datetime" style="width: 20%; text-align: center;" name=time1 placeholder="현재시각 시:분:초">
 
+        
+            <input type="text"style="height: 50px;text-align: center;" placeholder="TITLE" name=title1 id="tbString"><br>
+            
+            <!-- 결과창 -->
+            <!-- <span id="result" style="margin-left: 45%; background-color: rgb(0, 0, 0,0.5);; width: 80%; height: 50px;"></span> -->
 
-            <input type="text" style="height: 50px;text-align: center;" placeholder="TITLE" name=title1>
-            <input type="text" style="height: 300px;" placeholder="CONTENT" name=content1>
+            <input type="text"style="height: 300px;" placeholder="CONTENT" name=content1 >
 
-            <a href="#"><img class="deco" src="/static/stiker.png" style="margin-top: 33%; margin-left: -13%;"></a>
-            <a href="#"><img class="deco" src="/static/color.png" style="margin-top: 33%; margin-left: 2%;"></a>
-
+            <a href="#"><img class="deco" src="/static/stiker.png" style="margin-top: 31%; margin-left: -13%;"></a>
+            <a href="#" onclick="previewString()"><img class="deco" src="/static/color.png" style="margin-top: 31%; margin-left: 2%;"></a>
+            <!-- <input type="text" id="tbString">  -->
+ 
+   
+        <!-- <div style="margin-top:-5%; margin-left:90%">
+            <select id="fontColor" style="margin-top: 10%;">
+            
+                <option value="red">빨강 </option>
+                
+                <option value="blue">파랑 </option>
+                
+                <option value="yellow">노랑 </option>
+                <option value="white"> 하양 </option>
+            
+            </select>
+            
+            <select id="fontSize">
+            
+                <option value="5">5</option> 
+                
+                <option value="6">6</option> 
+                
+                <option value="7">7</option> 
+                
+                <option value="8">8</option>
+                
+                <option value="9">9</option>
+                <option value="10">10</option>
+                
+            </select><br><br><Br>
+        </div> -->
             <div class="but">
                
-                <button type="" class="btn btn-secondary">작성 취소</button>
-                <button type="submit" class="btn btn-secondary">작성 완료</button>
+                
+                <button type="submit" class="btn btn-secondary" style="margin-left: 20%; margin-top: 1.5%; ">작성 완료</button>
             </div>
             
 
         </div>
+        
     </form>
+    <form action="{% url 'list' %}" method="GET">
+        <div class="but">
+            <button class="btn btn-secondary" style="margin-right:25%; margin-top: -3%;">작성 취소</button>
+        </div>
+    </form>
+    <!-- <div style="background-color: white; text-align: center; margin-top: 2%; width: 50%; margin-left: 25%;">
+        <input type="checkbox" name="fontOptions" >취소선 &nbsp; &nbsp;
 
-    <!-- <script type="text/javascript" src="/static/js/write.js"></script>
-    <input type="text" id="tbString"> 
- 
-    <input type="button" value="적용" onclick="previewString()"> <br>
+        <input type="checkbox" name="fontOptions" >크게 &nbsp; &nbsp;
+        
+        <input type="checkbox" name="fontOptions" >작게 &nbsp; &nbsp;
+        
+        <input type="checkbox" name="fontOptions" >두껍게&nbsp; &nbsp;
+        
+        <input type="checkbox" name="fontOptions" >기울임&nbsp; &nbsp;
+        
+        
+        <input type="checkbox" name="fontOptions" >위첨자 &nbsp; &nbsp;
+        
+        <input type="checkbox" name="fontOptions" >아래첨자&nbsp; &nbsp;
+        
+        <input type="checkbox" name="fontOptions" >소문자로 &nbsp; &nbsp;
+        
+        <input type="checkbox" name="fontOptions" >대문자로 
+
+        
+        
+      
+    </div> -->
     
-    색상 : <select id="fontColor">
     
-     <option value="red">빨강 </option>
     
-     <option value="blue">파랑 </option>
-    
-     <option value="yellow">노랑 </option>
-    
-    </select><br>
-    
-    크기 : <select id="fontSize">
-    
-     <option value="1">1</option> 
-    
-     <option value="2">2</option> 
-    
-     <option value="3">3</option> 
-    
-     <option value="4">4</option>
-    
-      <option value="5">5</option>
-    
-     </select><br>
-    
-    <input type="checkbox" name="fontOptions" >취소선 
-    
-    <input type="checkbox" name="fontOptions" >크게 
-    
-    <input type="checkbox" name="fontOptions" >작게 
-    
-    <input type="checkbox" name="fontOptions" >두껍게
-    
-    <input type="checkbox" name="fontOptions" >기울임
-    
-    <br>
-    
-    <input type="checkbox" name="fontOptions" >위첨자 
-    
-    <input type="checkbox" name="fontOptions" >아래첨자
-    
-    <input type="checkbox" name="fontOptions" >소문자로 
-    
-    <input type="checkbox" name="fontOptions" >대문자로 
-    
-    <br>
-    
-    <span id = "result"></span> -->
 
 
 

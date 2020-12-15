@@ -31,6 +31,20 @@ urlpatterns = [
     path('storage_m/', views.storage_m, name='storage_m'),
 
     path('<int:id>/',views.read, name='read'),
+    #이전년도
+    path('<int:year>/yearly/',views.read_y_prev, name='read_y_prev'), 
+    #다음년도
+    path('yearly/<int:year>/',views.read_y_next, name='read_y_next'),
+
+    #이전달
+    path('<int:month>/monthly/',views.read_m_prev, name='read_m_prev'), 
+    #다음달
+    path('monthly/<int:month>/',views.read_m_next, name='read_m_next'),
+
+    #이전달-일기쓰기
+    path('<int:month>/list/',views.read_d_prev, name='read_d_prev'), 
+    #다음달-일기쓰기
+    path('list/<int:month>/',views.read_d_next, name='read_d_next'),
 
     path('add_y/',views.add_y, name='add_y'),
     path('add_m/',views.add_m, name='add_m'),

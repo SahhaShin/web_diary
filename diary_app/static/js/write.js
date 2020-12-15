@@ -25,7 +25,7 @@ function previewString(){
   
     targetString = targetString.fontcolor(objFontColor.options[objFontColor.selectedIndex].value);
   
-       targetString = targetString.fontsize(objFontSize.options[objFontSize.selectedIndex].value);
+   targetString = targetString.fontsize(objFontSize.options[objFontSize.selectedIndex].value);
   
        
   
