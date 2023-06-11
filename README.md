@@ -3,6 +3,10 @@
 # 개발 언어 및 프레임 워크
 HTML / CSS / JS / Django
 
+# 기획 영상
+https://youtu.be/OhIyKTdZ4IM
+
+
 # 구현
 <img width="783" alt="스크린샷 2023-06-11 오후 1 48 30" src="https://github.com/SahhaShin/web_diary/assets/33896511/269c3094-cf83-426c-9870-8c8f8b5736bb">
 
