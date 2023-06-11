@@ -1,7 +1,7 @@
 # web_diary
 
 # 개발 언어 및 프레임 워크
-HTML / CSS / JS / Django
+HTML / CSS / JS / Django / SQLite
 
 # 기획 영상
 https://youtu.be/OhIyKTdZ4IM
