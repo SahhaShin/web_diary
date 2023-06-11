@@ -8,7 +8,7 @@ https://youtu.be/OhIyKTdZ4IM
 
 
 # 구현
-<img width="783" alt="스크린샷 2023-06-11 오후 1 48 30" src="https://github.com/SahhaShin/web_diary/assets/33896511/269c3094-cf83-426c-9870-8c8f8b5736bb">
+<img width="866" alt="스크린샷 2023-06-11 오후 11 49 54" src="https://github.com/SahhaShin/web_diary/assets/33896511/c85352de-f53b-4567-8b94-ee4385610a34">
 
 <img width="870" alt="스크린샷 2023-06-11 오후 11 50 22" src="https://github.com/SahhaShin/web_diary/assets/33896511/0ceb3a23-faa9-49e4-bc96-10a3d8e4830f">
 
@@ -19,5 +19,3 @@ https://youtu.be/OhIyKTdZ4IM
 <img width="869" alt="스크린샷 2023-06-11 오후 11 51 48" src="https://github.com/SahhaShin/web_diary/assets/33896511/de0baaeb-3404-42fd-bb1b-7f5245cf70ca">
 
 <img width="869" alt="스크린샷 2023-06-11 오후 11 52 17" src="https://github.com/SahhaShin/web_diary/assets/33896511/a5b35579-b806-4228-a80e-9e62d4e166b2">
-
-<img width="866" alt="스크린샷 2023-06-11 오후 11 49 54" src="https://github.com/SahhaShin/web_diary/assets/33896511/c85352de-f53b-4567-8b94-ee4385610a34">
